@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_enviar_comentario:
-                Toast.makeText(this,"Hola",Toast.LENGTH_SHORT);
+                Intent intentEnviarComentario = new Intent(this,EnvioMail_Activity.class);
+                startActivity(intentEnviarComentario);
                 break;
             case R.id.menu_acerca_de:
                 Intent intentAcercaDe = new Intent(this,AcercaDeActivity.class);
@@ -60,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
         return true;
     }

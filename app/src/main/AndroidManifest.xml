@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMascotas">
         <activity
+            android:name=".EnvioMail_Activity"
+            android:parentActivityName=".MainActivity"
+            >
+            <!-- Soporte para android <= 4 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity
             android:name=".AcercaDeActivity"
             android:parentActivityName=".MainActivity">
 
@@ -17,7 +27,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-            ></activity>
+            >
+        </activity>
         <activity
             android:name=".MostarFavoritos"
             android:parentActivityName=".MainActivity">
