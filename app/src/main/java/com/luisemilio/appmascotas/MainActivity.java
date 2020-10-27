@@ -51,14 +51,18 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_enviar_comentario:
                 Toast.makeText(this,"Hola",Toast.LENGTH_SHORT);
+                break;
             case R.id.menu_acerca_de:
-                Toast.makeText(this,"Hola",Toast.LENGTH_SHORT);
+                Intent intentAcercaDe = new Intent(this,AcercaDeActivity.class);
+                startActivity(intentAcercaDe);
+                break;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
+        return true;
     }
 
     private ArrayList<Fragment> agregarFragments(){

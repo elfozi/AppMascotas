@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMascotas">
-        <activity android:name=".AcercaDeActivity"></activity>
+        <activity
+            android:name=".AcercaDeActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Soporte para android <= 4 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            ></activity>
         <activity
             android:name=".MostarFavoritos"
             android:parentActivityName=".MainActivity">
