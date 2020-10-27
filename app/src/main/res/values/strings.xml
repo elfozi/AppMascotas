@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppMascotas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="nombr_mi_perro">Ruffo</string>
+    <string name="menu_acerca_de">Acerca de</string>
+    <string name="menu_enviar_comentarios">Enviar Comentarios</string>
 </resources>

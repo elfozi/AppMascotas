@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+  <!--android:id="@+id/miActionBar"-->
     <include
-        android:id="@+id/miActionBar"
         layout="@layout/actionbar">
     </include>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMascotas"
+
+   <!-- Contenedor de los Fragments -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/miActionBar"
-        />
-
-</RelativeLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+    </androidx.viewpager.widget.ViewPager>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

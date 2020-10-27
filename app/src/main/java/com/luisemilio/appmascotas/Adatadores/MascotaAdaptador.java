@@ -1,36 +1,36 @@
-package com.luisemilio.appmascotas;
+package com.luisemilio.appmascotas.Adatadores;
 
 import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+import com.luisemilio.appmascotas.MainActivity;
+import com.luisemilio.appmascotas.Mascota;
+import com.luisemilio.appmascotas.R;
+import com.luisemilio.appmascotas.fragments.MainFragment;
 
 import java.util.ArrayList;
 
 public class MascotaAdaptador extends RecyclerView.Adapter <MascotaAdaptador.MascotaViewHolder> {
 
     ArrayList<Mascota> mascotas;
-    MainActivity actividad;
-    Activity activity_generica;
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, MainActivity activity){
+    MainFragment actividad;
+
+    public MascotaAdaptador(ArrayList<Mascota> mascotas, MainFragment activity){
         this.mascotas=mascotas;
         this.actividad=activity;
     }
 
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
         this.mascotas=mascotas;
-        this.activity_generica=activity;
+
     }
     @NonNull
     @Override
