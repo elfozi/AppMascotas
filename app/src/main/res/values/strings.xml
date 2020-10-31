@@ -7,4 +7,5 @@
     <string name="boton_enviar">Enviar</string>
     <string name="txt_titulo_comentario">Escribir Comentario</string>
     <string name="txto_acerca_de">Este programa es el practico de la semana 4 de Desarrollo de Apps Android</string>
+    <string name="titulo_favoritos">Mis ultimos 5 favoritos</string>
 </resources>
