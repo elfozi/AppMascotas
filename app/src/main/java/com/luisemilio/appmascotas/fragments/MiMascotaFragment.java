@@ -51,11 +51,11 @@ public class MiMascotaFragment extends Fragment {
 
     private void llenarLista() {
         this.mascotas = new ArrayList<Mascota>();
-        this.mascotas.add(new Mascota("Ruffo", R.drawable.mimascota1, 0));
-        this.mascotas.add(new Mascota("Ruffo", R.drawable.mimascota2, 0));
-        this.mascotas.add(new Mascota("Ruffo", R.drawable.mimascota3, 0));
-        this.mascotas.add(new Mascota("Ruffo", R.drawable.mimascota4, 0));
-        this.mascotas.add(new Mascota("Ruffo", R.drawable.mimascota5, 0));
+        this.mascotas.add(new Mascota(1,"Ruffo", R.drawable.mimascota1, 0,""));
+        this.mascotas.add(new Mascota(2,"Ruffo", R.drawable.mimascota2, 0,""));
+        this.mascotas.add(new Mascota(3,"Ruffo", R.drawable.mimascota3, 0,""));
+        this.mascotas.add(new Mascota(4,"Ruffo", R.drawable.mimascota4, 0,""));
+        this.mascotas.add(new Mascota(5,"Ruffo", R.drawable.mimascota5, 0,""));
     }
 
     public void inicializarAdaptdor() {

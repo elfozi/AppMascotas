@@ -10,22 +10,22 @@ import java.util.ArrayList;
 public class PageAdapter extends FragmentPagerAdapter {
 
 
-    private ArrayList<Fragment> fragments;
+    private ArrayList<Fragment> fragment;
 
     public PageAdapter(@NonNull FragmentManager fm, int behavior, ArrayList<Fragment>fragments) {
         super(fm, behavior);
-        this.fragments=fragments;
+        this.fragment=fragments;
     }
 
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return fragments.get(position);
+        return fragment.get(position);
     }
 
     @Override
     public int getCount() {
-        return fragments.size();
+        return fragment.size();
     }
 }

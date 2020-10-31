@@ -4,18 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-import com.luisemilio.appmascotas.Adatadores.MascotaAdaptador;
 import com.luisemilio.appmascotas.Adatadores.PageAdapter;
 import com.luisemilio.appmascotas.fragments.MainFragment;
 import com.luisemilio.appmascotas.fragments.MiMascotaFragment;
@@ -56,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_acerca_de:
                 Intent intentAcercaDe = new Intent(this,AcercaDeActivity.class);
                 startActivity(intentAcercaDe);
+                break;
+
+            case R.id.action_favoritos:
+                Intent mostrarFavoritos = new Intent(this, MostarFavoritos.class);
+                startActivity(mostrarFavoritos);
                 break;
             default:
                 // If we got here, the user's action was not recognized.

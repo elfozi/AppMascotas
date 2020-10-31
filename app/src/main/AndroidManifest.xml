@@ -32,7 +32,6 @@
         <activity
             android:name=".MostarFavoritos"
             android:parentActivityName=".MainActivity">
-
             <!-- Soporte para android <= 4 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

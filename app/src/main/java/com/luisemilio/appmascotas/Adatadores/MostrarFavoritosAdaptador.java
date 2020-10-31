@@ -1,6 +1,5 @@
 package com.luisemilio.appmascotas.Adatadores;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,32 +10,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.luisemilio.appmascotas.MainActivity;
 import com.luisemilio.appmascotas.Mascota;
+import com.luisemilio.appmascotas.MostarFavoritos;
 import com.luisemilio.appmascotas.R;
-import com.luisemilio.appmascotas.db.ConstructorMascotas;
-import com.luisemilio.appmascotas.fragments.MainFragment;
 
 import java.util.ArrayList;
 
-public class MascotaAdaptador extends RecyclerView.Adapter <MascotaAdaptador.MascotaViewHolder> {
+public class MostrarFavoritosAdaptador extends RecyclerView.Adapter <MostrarFavoritosAdaptador.MascotaFavoritaViewHolder> {
 
     ArrayList<Mascota> mascotas;
-    MainFragment actividad;
+    MostarFavoritos actividad;
 
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, MainFragment activity){
+    public MostrarFavoritosAdaptador(ArrayList<Mascota> mascotas, MostarFavoritos activity){
         this.mascotas=mascotas;
         this.actividad=activity;
     }
-/*
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
-        this.mascotas=mascotas;
 
-    }*/
     @NonNull
     @Override
     //Inflar el layout y lo pasara al viewholder para que el obtenga los view
-    public MascotaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MascotaFavoritaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Se asigna el layout, en este caso el cardview, que se va estar reciclando
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota,parent,false);
         //Si agrego este listener escucha cuando toco cualquier parte del cardview no solo el boton o la foto
@@ -47,30 +40,30 @@ public class MascotaAdaptador extends RecyclerView.Adapter <MascotaAdaptador.Mas
                 Toast.makeText(activity,t.getText().toString(),Toast.LENGTH_SHORT).show();
             }
         });*/
-        return new MascotaViewHolder(v);
+        return new MascotaFavoritaViewHolder(v);
     }
 
     @Override
     //aoscia  cada elemento de la lista  con cada view
-    public void onBindViewHolder(@NonNull MascotaViewHolder MascotaViewHolder, int position) {
+    public void onBindViewHolder(@NonNull MascotaFavoritaViewHolder MascotaViewHolder, int position) {
         final Mascota mascota = mascotas.get(position);
         MascotaViewHolder.imgFotoMascota.setImageResource(mascota.getFoto());
         MascotaViewHolder.tvNombreMascota.setText(mascota.getNombre());
         MascotaViewHolder.tvNumeroMeGusta.setText(String.valueOf(mascota.getCantidadMeGusta()));
-        MascotaViewHolder.imgBtnMeGusta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Mascota mascota= mascotas.get(position);
-                ConstructorMascotas constructorMascotas = new ConstructorMascotas(actividad.getContext());
-                constructorMascotas.actualizarMeGusta(mascota);
-               MascotaViewHolder.tvNumeroMeGusta.setText(String.valueOf(mascota.getCantidadMeGusta()));
-                /*mascotas.remove(position);
-                mascotas.add(position,mascota);
-                actividad.cambioLista();*/
+        //En caso que mi activadad no se la main
+        if (actividad != null){
+            MascotaViewHolder.imgBtnMeGusta.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Mascota mascota= mascotas.get(position);
+                    mascota.sumarMeGusta();
+                    mascotas.remove(position);
+                    mascotas.add(position,mascota);
+                    //actividad.cambioLista();
 
-            }
-        });
-
+                }
+            });
+        }
 
 
     }
@@ -82,7 +75,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter <MascotaAdaptador.Mas
 
     }
 
-    public static class MascotaViewHolder extends RecyclerView.ViewHolder{
+    public static class MascotaFavoritaViewHolder extends RecyclerView.ViewHolder{
 
         private final ImageView imgFotoMascota;
         private final ImageButton imgBtnMeGusta;
@@ -90,7 +83,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter <MascotaAdaptador.Mas
         private final TextView tvNumeroMeGusta;
         private final ImageView imgFavIco;
 
-        public MascotaViewHolder(@NonNull View itemView) {
+        public MascotaFavoritaViewHolder(@NonNull View itemView) {
             super(itemView);
             imgFotoMascota      = (ImageView)  itemView.findViewById(R.id.imgFotoMascota);
             imgBtnMeGusta       = (ImageButton) itemView.findViewById((R.id.imgBtnMeGusta));
